@@ -344,8 +344,35 @@ class _HomePageState extends State<HomePage> {
                 ),
                 //Hakkımda
                 Container(
-                  child: Text(
-                      "Front-end ve Mobil alanlarında kendini geliştirmeye çalışan yazılım mühendisliği öğrencisiyim."),
+                  decoration: BoxDecoration(
+                    color: Color(0xFFeceff9),
+                  ),
+                  child: Container(
+                    margin: EdgeInsets.symmetric(vertical: 40,horizontal: 70),
+                    padding: EdgeInsets.all(30),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(40),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xFF7f8287).withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 9,
+                          offset: Offset(5, 5), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Text(
+                      "10 Ağustos 1998'de Manisa'nın Soma ileçesinde doğdum. İlköğretimimi Alanya'nın Hayate Hanım İlköğretim Okulunda aldım. Liseyi yine Alanya'da Alanya Teknik ve Endüstri Meslek Lisesinde okudum. Küçük yaşlarda başlayan futbola ilgimden dolayı yaklaşık 9 yıl kadar Alanya Sporun altyapı takımlarında futbol oynadım. Lise bittiğinde futbolu bırakarak üniversite sınavına hazırlandım. Manisa Celal Bayar Üniversitesi'nin Yazılım Mühendisliği bölümünü kazandım. Şuan 3. sınıftayım. İlgi duyduğum ve kodu yazdıktan sonra hemen görsel olarak sonuçlarını almak beni daha motive ettiği için Mobil ve Front-end alanlarında kendimi geliştirmeye çalışıyorum. Gelcek için hedeflerimden birisi Türkiye'nin saygın Yazılım Mühedislerinden birisi olmak.",
+                      style: TextStyle(
+                          color: Color(0xFF7f8287),
+                          fontSize: 18,
+                          letterSpacing: 1,
+                          fontFamily: "Poppins",
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ),
               ],
             ),
