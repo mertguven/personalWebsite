@@ -3,7 +3,10 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'my_flutter_app_icons.dart';
+import 'package:scoachWeb/screen/anasayfa.dart';
+import 'package:scoachWeb/screen/deneyimlerim.dart';
+import 'package:scoachWeb/screen/hakkimda.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,34 +15,35 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int akontrol, hkontrol, dkontrol, ikontrol = 0;
+  PageController _pageController =  PageController(initialPage: 0);
+  int currentPage = 0;
 
   @override
   void initState() {
     akontrol = 1;
     super.initState();
   }
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         children: [
           //Top buttonlar
           Container(
-            color: Color(0xFF7f8287),
+            color: Color(0xFF8e99c7),
             padding: EdgeInsets.symmetric(vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 FlatButton(
                     onPressed: () {
-                      setState(() {
-                        akontrol = 1;
-                        hkontrol = 0;
-                        dkontrol = 0;
-                        ikontrol = 0;
-                      });
+                      _pageController.animateToPage(0, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
                     },
                     hoverColor: Colors.white12,
                     highlightColor: Colors.transparent,
@@ -53,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                                 fontSize: 18,
                                 letterSpacing: 1)),
                         Opacity(
-                          opacity: akontrol == 1 ? 1 : 0,
+                          opacity: currentPage == 0 ? 1 : 0,
                           child: Container(
                             margin: EdgeInsets.only(top: 5),
                             color: Colors.white,
@@ -65,12 +69,7 @@ class _HomePageState extends State<HomePage> {
                     )),
                 FlatButton(
                     onPressed: () {
-                      setState(() {
-                        akontrol = 0;
-                        hkontrol = 1;
-                        dkontrol = 0;
-                        ikontrol = 0;
-                      });
+                      _pageController.animateToPage(1, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
                     },
                     hoverColor: Colors.white12,
                     highlightColor: Colors.transparent,
@@ -84,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                                 fontSize: 18,
                                 letterSpacing: 1)),
                         Opacity(
-                          opacity: hkontrol == 1 ? 1 : 0,
+                          opacity: currentPage == 1 ? 1 : 0,
                           child: Container(
                             margin: EdgeInsets.only(top: 5),
                             color: Colors.white,
@@ -96,12 +95,7 @@ class _HomePageState extends State<HomePage> {
                     )),
                 FlatButton(
                     onPressed: () {
-                      setState(() {
-                        akontrol = 0;
-                        hkontrol = 0;
-                        dkontrol = 1;
-                        ikontrol = 0;
-                      });
+                      _pageController.animateToPage(3, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
                     },
                     hoverColor: Colors.white12,
                     highlightColor: Colors.transparent,
@@ -115,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                                 fontSize: 18,
                                 letterSpacing: 1)),
                         Opacity(
-                          opacity: dkontrol == 1 ? 1 : 0,
+                          opacity: currentPage == 2 ? 1 : 0,
                           child: Container(
                             margin: EdgeInsets.only(top: 5),
                             color: Colors.white,
@@ -127,12 +121,7 @@ class _HomePageState extends State<HomePage> {
                     )),
                 FlatButton(
                     onPressed: () {
-                      setState(() {
-                        akontrol = 0;
-                        hkontrol = 0;
-                        dkontrol = 0;
-                        ikontrol = 1;
-                      });
+
                     },
                     hoverColor: Colors.white12,
                     highlightColor: Colors.transparent,
@@ -146,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                                 fontSize: 18,
                                 letterSpacing: 1)),
                         Opacity(
-                          opacity: ikontrol == 1 ? 1 : 0,
+                          opacity: currentPage == 3 ? 1 : 0,
                           child: Container(
                             margin: EdgeInsets.only(top: 5),
                             color: Colors.white,
@@ -159,221 +148,21 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          /*Image.asset(
-            "assets/images/bg.jpg",
-            height: double.infinity,
-            width: double.infinity,
-            alignment: Alignment.center,
-            fit: BoxFit.cover,
-          ),*/
           Expanded(
-            child: ListView(
+            child: PageView(
               physics: AlwaysScrollableScrollPhysics(),
+              pageSnapping: false,
+              controller: _pageController,
               scrollDirection: Axis.vertical,
+              onPageChanged: (val){
+                setState(() {
+                  currentPage = val;
+                });
+              },
               children: [
-                //Anasayfa
-                Container(
-                  height: size.height,
-                  width: size.width,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/bg.jpg"),
-                      alignment: Alignment.center,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 50),
-                        child: CircleAvatar(
-                          radius: 100,
-                          backgroundImage: NetworkImage(
-                              "https://instagram.fayt2-1.fna.fbcdn.net/v/t51.2885-19/s150x150/66243095_712452122526807_5112435250445680640_n.jpg?_nc_ht=instagram.fayt2-1.fna.fbcdn.net&_nc_ohc=SF4rzNZjlIAAX8BwERC&oh=561ba2db6fc7f22ef1ba87bb001562a1&oe=5F7D0C0F"),
-                        ),
-                      ),
-                      Container(
-                        height: MediaQuery.of(context).size.height / 2,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "MERT GÜVEN",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  color: Colors.white,
-                                  fontSize: 60,
-                                  letterSpacing: 10),
-                            ),
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 20),
-                              child: Text(
-                                "Front-end ve Mobil alanlarında kendini geliştirmeye çalışan yazılım mühendisliği öğrencisiyim.",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    letterSpacing: 1),
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                FlatButton(
-                                    onPressed: () {
-                                      window.open(
-                                          "https://www.facebook.com/profile.php?id=100048342640662",
-                                          "facebook");
-                                    },
-                                    hoverColor: Colors.black,
-                                    color: Colors.white,
-                                    shape: CircleBorder(),
-                                    child: Container(
-                                      height: 80,
-                                      width: 80,
-                                      child: Icon(
-                                        MyFlutterApp.facebook,
-                                        size: 40,
-                                        color: Color(0xFF7f8287),
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(100),
-                                      ),
-                                    )),
-                                SizedBox(width: 10),
-                                FlatButton(
-                                    onPressed: () {
-                                      window.open(
-                                          "https://www.linkedin.com/in/mert-güven-8a0006177/",
-                                          "linkedin");
-                                    },
-                                    hoverColor: Colors.black,
-                                    color: Colors.white,
-                                    shape: CircleBorder(),
-                                    child: Container(
-                                      height: 80,
-                                      width: 80,
-                                      child: Icon(
-                                        MyFlutterApp.linkedin,
-                                        size: 40,
-                                        color: Color(0xFF7f8287),
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(100),
-                                      ),
-                                    )),
-                                SizedBox(width: 10),
-                                FlatButton(
-                                    onPressed: () {
-                                      window.open(
-                                          "https://twitter.com/merttgvvn",
-                                          "twitter");
-                                    },
-                                    hoverColor: Colors.black,
-                                    color: Colors.white,
-                                    shape: CircleBorder(),
-                                    child: Container(
-                                      height: 80,
-                                      width: 80,
-                                      child: Icon(
-                                        MyFlutterApp.twitter,
-                                        size: 40,
-                                        color: Color(0xFF7f8287),
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(100),
-                                      ),
-                                    )),
-                                SizedBox(width: 10),
-                                FlatButton(
-                                    onPressed: () {
-                                      window.open(
-                                          "https://www.instagram.com/merttgvvn/",
-                                          "instagram");
-                                    },
-                                    hoverColor: Colors.black,
-                                    color: Colors.white,
-                                    shape: CircleBorder(),
-                                    child: Container(
-                                      height: 80,
-                                      width: 80,
-                                      child: Icon(
-                                        MyFlutterApp.instagram_1,
-                                        size: 40,
-                                        color: Color(0xFF7f8287),
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(100),
-                                      ),
-                                    )),
-                                SizedBox(width: 10),
-                                FlatButton(
-                                    onPressed: () {
-                                      window.open(
-                                          "https://github.com/mertguven",
-                                          "github");
-                                    },
-                                    hoverColor: Colors.black,
-                                    color: Colors.white,
-                                    shape: CircleBorder(),
-                                    child: Container(
-                                      height: 80,
-                                      width: 80,
-                                      child: Icon(
-                                        MyFlutterApp.github,
-                                        size: 40,
-                                        color: Color(0xFF7f8287),
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(100),
-                                      ),
-                                    )),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                //Hakkımda
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xFFeceff9),
-                  ),
-                  child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 40,horizontal: 70),
-                    padding: EdgeInsets.all(30),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(40),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0xFF7f8287).withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 9,
-                          offset: Offset(5, 5), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Text(
-                      "10 Ağustos 1998'de Manisa'nın Soma ileçesinde doğdum. İlköğretimimi Alanya'nın Hayate Hanım İlköğretim Okulunda aldım. Liseyi yine Alanya'da Alanya Teknik ve Endüstri Meslek Lisesinde okudum. Küçük yaşlarda başlayan futbola ilgimden dolayı yaklaşık 9 yıl kadar Alanya Sporun altyapı takımlarında futbol oynadım. Lise bittiğinde futbolu bırakarak üniversite sınavına hazırlandım. Manisa Celal Bayar Üniversitesi'nin Yazılım Mühendisliği bölümünü kazandım. Şuan 3. sınıftayım. İlgi duyduğum ve kodu yazdıktan sonra hemen görsel olarak sonuçlarını almak beni daha motive ettiği için Mobil ve Front-end alanlarında kendimi geliştirmeye çalışıyorum. Gelcek için hedeflerimden birisi Türkiye'nin saygın Yazılım Mühedislerinden birisi olmak.",
-                      style: TextStyle(
-                          color: Color(0xFF7f8287),
-                          fontSize: 18,
-                          letterSpacing: 1,
-                          fontFamily: "Poppins",
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
+                Anasayfa(),
+                Hakkimda(),
+                Deneyimlerim(),
               ],
             ),
           ),
@@ -382,3 +171,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+
