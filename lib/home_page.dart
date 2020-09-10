@@ -4,8 +4,9 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:scoachWeb/screen/anasayfa.dart';
-import 'package:scoachWeb/screen/deneyimlerim.dart';
+import 'package:scoachWeb/screen/becerilerim.dart';
 import 'package:scoachWeb/screen/hakkimda.dart';
+import 'package:scoachWeb/screen/scoach.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -95,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                     )),
                 FlatButton(
                     onPressed: () {
-                      _pageController.animateToPage(3, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
+                      _pageController.animateToPage(2, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
                     },
                     hoverColor: Colors.white12,
                     highlightColor: Colors.transparent,
@@ -103,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text("Deneyimlerim",
+                        Text("Becerilerim",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
@@ -121,7 +122,33 @@ class _HomePageState extends State<HomePage> {
                     )),
                 FlatButton(
                     onPressed: () {
-
+                      _pageController.animateToPage(3, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
+                    },
+                    hoverColor: Colors.white12,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text("Scoach",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                letterSpacing: 1)),
+                        Opacity(
+                          opacity: currentPage == 3 ? 1 : 0,
+                          child: Container(
+                            margin: EdgeInsets.only(top: 5),
+                            color: Colors.white,
+                            height: 3,
+                            width: 40,
+                          ),
+                        ),
+                      ],
+                    )),
+                FlatButton(
+                    onPressed: () {
+                      _pageController.animateToPage(4, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
                     },
                     hoverColor: Colors.white12,
                     highlightColor: Colors.transparent,
@@ -135,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                                 fontSize: 18,
                                 letterSpacing: 1)),
                         Opacity(
-                          opacity: currentPage == 3 ? 1 : 0,
+                          opacity: currentPage == 4 ? 1 : 0,
                           child: Container(
                             margin: EdgeInsets.only(top: 5),
                             color: Colors.white,
@@ -162,7 +189,8 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Anasayfa(),
                 Hakkimda(),
-                Deneyimlerim(),
+                Becerilerim(),
+                Scoach(),
               ],
             ),
           ),
