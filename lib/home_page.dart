@@ -6,8 +6,8 @@ import 'package:flutter/rendering.dart';
 import 'package:scoachWeb/screen/anasayfa.dart';
 import 'package:scoachWeb/screen/becerilerim.dart';
 import 'package:scoachWeb/screen/hakkimda.dart';
+import 'package:scoachWeb/screen/iletisim.dart';
 import 'package:scoachWeb/screen/scoach.dart';
-
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int akontrol, hkontrol, dkontrol, ikontrol = 0;
-  PageController _pageController =  PageController(initialPage: 0);
+  PageController _pageController = PageController(initialPage: 0);
   int currentPage = 0;
 
   @override
@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
     akontrol = 1;
     super.initState();
   }
+
   @override
   void dispose() {
     _pageController.dispose();
@@ -40,11 +41,20 @@ class _HomePageState extends State<HomePage> {
             color: Color(0xFF8e99c7),
             padding: EdgeInsets.symmetric(vertical: 10),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(width: 15),
+                Image.asset(
+                  "assets/images/logo.png",
+                  width: 50,
+                  height: 50,
+                  filterQuality: FilterQuality.high,
+                ),
+                Spacer(flex: 1),
                 FlatButton(
                     onPressed: () {
-                      _pageController.animateToPage(0, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
+                      _pageController.animateToPage(0,
+                          duration: Duration(seconds: 1),
+                          curve: Curves.easeInToLinear);
                     },
                     hoverColor: Colors.white12,
                     highlightColor: Colors.transparent,
@@ -70,7 +80,9 @@ class _HomePageState extends State<HomePage> {
                     )),
                 FlatButton(
                     onPressed: () {
-                      _pageController.animateToPage(1, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
+                      _pageController.animateToPage(1,
+                          duration: Duration(seconds: 1),
+                          curve: Curves.easeInToLinear);
                     },
                     hoverColor: Colors.white12,
                     highlightColor: Colors.transparent,
@@ -96,7 +108,9 @@ class _HomePageState extends State<HomePage> {
                     )),
                 FlatButton(
                     onPressed: () {
-                      _pageController.animateToPage(2, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
+                      _pageController.animateToPage(2,
+                          duration: Duration(seconds: 1),
+                          curve: Curves.easeInToLinear);
                     },
                     hoverColor: Colors.white12,
                     highlightColor: Colors.transparent,
@@ -122,7 +136,9 @@ class _HomePageState extends State<HomePage> {
                     )),
                 FlatButton(
                     onPressed: () {
-                      _pageController.animateToPage(3, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
+                      _pageController.animateToPage(3,
+                          duration: Duration(seconds: 1),
+                          curve: Curves.easeInToLinear);
                     },
                     hoverColor: Colors.white12,
                     highlightColor: Colors.transparent,
@@ -148,7 +164,9 @@ class _HomePageState extends State<HomePage> {
                     )),
                 FlatButton(
                     onPressed: () {
-                      _pageController.animateToPage(4, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
+                      _pageController.animateToPage(4,
+                          duration: Duration(seconds: 1),
+                          curve: Curves.easeInToLinear);
                     },
                     hoverColor: Colors.white12,
                     highlightColor: Colors.transparent,
@@ -172,6 +190,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     )),
+                Spacer(flex: 1),
               ],
             ),
           ),
@@ -181,7 +200,7 @@ class _HomePageState extends State<HomePage> {
               pageSnapping: false,
               controller: _pageController,
               scrollDirection: Axis.vertical,
-              onPageChanged: (val){
+              onPageChanged: (val) {
                 setState(() {
                   currentPage = val;
                 });
@@ -191,6 +210,7 @@ class _HomePageState extends State<HomePage> {
                 Hakkimda(),
                 Becerilerim(),
                 Scoach(),
+                Iletisim()
               ],
             ),
           ),
@@ -199,6 +219,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-
