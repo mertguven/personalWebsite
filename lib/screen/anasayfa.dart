@@ -16,7 +16,11 @@ class _AnasayfaState extends State<Anasayfa> {
       height: size.height,
       width: size.width,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: AssetImage("assets/images/vp.png"),
+        ),
+        /*gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
@@ -29,7 +33,7 @@ class _AnasayfaState extends State<Anasayfa> {
               0.4,
               0.9
             ]
-        ),
+        ),*/
       ),
       child: Column(
         children: [

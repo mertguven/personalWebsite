@@ -33,6 +33,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var platform = size.height < 960 && size.width < 360 ? "mobile" : "pc";
+    var oriantation = MediaQuery.of(context).orientation == Orientation.portrait ? Orientation.portrait : Orientation.landscape;
     return Scaffold(
       body: Column(
         children: [
@@ -210,7 +213,10 @@ class _HomePageState extends State<HomePage> {
                 Hakkimda(),
                 Becerilerim(),
                 Scoach(),
-                Iletisim()
+                /*Container(
+                  margin: EdgeInsets.symmetric(horizontal: 50),
+                  child: Iletisim(),
+                )*/
               ],
             ),
           ),

@@ -69,12 +69,17 @@ class _BecerilerimState extends State<Becerilerim> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             image,
-            Text(
-              tanim,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.w200,
-                fontFamily: "Poppins",
+            Expanded(
+              child: SingleChildScrollView(
+                physics: AlwaysScrollableScrollPhysics(),
+                child: Text(
+                  tanim,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w200,
+                    fontFamily: "Poppins",
+                  ),
+                ),
               ),
             ),
             Text(
