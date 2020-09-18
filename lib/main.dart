@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Kişisel websitesi - Mert Güven',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        backgroundColor: Colors.white,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

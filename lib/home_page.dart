@@ -41,13 +41,14 @@ class _HomePageState extends State<HomePage> {
         children: [
           //Top buttonlar
           Container(
-            color: Color(0xFF8e99c7),
+            color: Color(0xFF90e0ef),
             padding: EdgeInsets.symmetric(vertical: 10),
             child: Row(
               children: [
                 SizedBox(width: 15),
                 Image.asset(
                   "assets/images/logo.png",
+                  color: Color(0xFF03045e),
                   width: 50,
                   height: 50,
                   filterQuality: FilterQuality.high,
@@ -67,14 +68,14 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text("Ana Sayfa",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xFF03045e),
                                 fontSize: 18,
                                 letterSpacing: 1)),
                         Opacity(
                           opacity: currentPage == 0 ? 1 : 0,
                           child: Container(
                             margin: EdgeInsets.only(top: 5),
-                            color: Colors.white,
+                            color: Color(0xFF03045e),
                             height: 3,
                             width: 40,
                           ),
@@ -95,14 +96,14 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text("Hakkımda",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xFF03045e),
                                 fontSize: 18,
                                 letterSpacing: 1)),
                         Opacity(
                           opacity: currentPage == 1 ? 1 : 0,
                           child: Container(
                             margin: EdgeInsets.only(top: 5),
-                            color: Colors.white,
+                            color: Color(0xFF03045e),
                             height: 3,
                             width: 40,
                           ),
@@ -123,14 +124,14 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text("Becerilerim",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xFF03045e),
                                 fontSize: 18,
                                 letterSpacing: 1)),
                         Opacity(
                           opacity: currentPage == 2 ? 1 : 0,
                           child: Container(
                             margin: EdgeInsets.only(top: 5),
-                            color: Colors.white,
+                            color: Color(0xFF03045e),
                             height: 3,
                             width: 40,
                           ),
@@ -151,14 +152,14 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text("Scoach",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xFF03045e),
                                 fontSize: 18,
                                 letterSpacing: 1)),
                         Opacity(
                           opacity: currentPage == 3 ? 1 : 0,
                           child: Container(
                             margin: EdgeInsets.only(top: 5),
-                            color: Colors.white,
+                            color: Color(0xFF03045e),
                             height: 3,
                             width: 40,
                           ),
@@ -179,14 +180,14 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text("İletişim",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xFF03045e),
                                 fontSize: 18,
                                 letterSpacing: 1)),
                         Opacity(
                           opacity: currentPage == 4 ? 1 : 0,
                           child: Container(
                             margin: EdgeInsets.only(top: 5),
-                            color: Colors.white,
+                            color: Color(0xFF03045e),
                             height: 3,
                             width: 40,
                           ),
@@ -213,10 +214,7 @@ class _HomePageState extends State<HomePage> {
                 Hakkimda(),
                 Becerilerim(),
                 Scoach(),
-                /*Container(
-                  margin: EdgeInsets.symmetric(horizontal: 50),
-                  child: Iletisim(),
-                )*/
+                Iletisim()
               ],
             ),
           ),

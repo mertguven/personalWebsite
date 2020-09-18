@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
 import 'my_flutter_app_icons.dart';
@@ -16,24 +17,17 @@ class _AnasayfaState extends State<Anasayfa> {
       height: size.height,
       width: size.width,
       decoration: BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.fill,
-          image: AssetImage("assets/images/vp.png"),
-        ),
-        /*gradient: LinearGradient(
+        gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF8e99c7),
-              Color(0xFFa0ade1),
-              Color(0xFFc1c9e4),
+              Color(0xFF90e0ef),
+              Color(0xFFFFFFFF),
             ],
             stops: [
-              0.2,
-              0.4,
+              0.3,
               0.9
-            ]
-        ),*/
+            ]),
       ),
       child: Column(
         children: [
@@ -54,18 +48,17 @@ class _AnasayfaState extends State<Anasayfa> {
                   "MERT GÜVEN",
                   style: TextStyle(
                       fontFamily: "Poppins",
-                      color: Colors.white,
+                      color: Color(0xFF0077b6),
                       fontSize: 60,
                       letterSpacing: 10),
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(
-                      horizontal: 20, vertical: 20),
+                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: Text(
                     "Front-end ve Mobil alanlarında kendini geliştirmeye çalışan yazılım mühendisliği öğrencisiyim.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Color(0xFF0077b6),
                         fontSize: 20,
                         letterSpacing: 1),
                   ),
@@ -88,11 +81,19 @@ class _AnasayfaState extends State<Anasayfa> {
                           child: Icon(
                             MyFlutterApp.facebook,
                             size: 40,
-                            color: Color(0xFF8e99c7),
+                            color: Color(0xFF0077b6),
                           ),
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(100),
+                            borderRadius: BorderRadius.circular(100),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0xFF7f8287).withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 9,
+                                offset:
+                                    Offset(20, 10), // changes position of shadow
+                              ),
+                            ],
                           ),
                         )),
                     SizedBox(width: 10),
@@ -111,19 +112,26 @@ class _AnasayfaState extends State<Anasayfa> {
                           child: Icon(
                             MyFlutterApp.linkedin,
                             size: 40,
-                            color: Color(0xFF8e99c7),
+                            color: Color(0xFF0077b6),
                           ),
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(100),
+                            borderRadius: BorderRadius.circular(100),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0xFF7f8287).withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 9,
+                                offset:
+                                Offset(20, 10), // changes position of shadow
+                              ),
+                            ],
                           ),
                         )),
                     SizedBox(width: 10),
                     FlatButton(
                         onPressed: () {
                           window.open(
-                              "https://twitter.com/merttgvvn",
-                              "twitter");
+                              "https://twitter.com/merttgvvn", "twitter");
                         },
                         hoverColor: Colors.black,
                         color: Colors.white,
@@ -134,18 +142,25 @@ class _AnasayfaState extends State<Anasayfa> {
                           child: Icon(
                             MyFlutterApp.twitter,
                             size: 40,
-                            color: Color(0xFF8e99c7),
+                            color: Color(0xFF0077b6),
                           ),
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(100),
+                            borderRadius: BorderRadius.circular(100),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0xFF7f8287).withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 9,
+                                offset:
+                                Offset(20, 10), // changes position of shadow
+                              ),
+                            ],
                           ),
                         )),
                     SizedBox(width: 10),
                     FlatButton(
                         onPressed: () {
-                          window.open(
-                              "https://www.instagram.com/merttgvvn/",
+                          window.open("https://www.instagram.com/merttgvvn/",
                               "instagram");
                         },
                         hoverColor: Colors.black,
@@ -157,19 +172,25 @@ class _AnasayfaState extends State<Anasayfa> {
                           child: Icon(
                             MyFlutterApp.instagram_1,
                             size: 40,
-                            color: Color(0xFF8e99c7),
+                            color: Color(0xFF0077b6),
                           ),
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(100),
+                            borderRadius: BorderRadius.circular(100),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0xFF7f8287).withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 9,
+                                offset:
+                                Offset(20, 10), // changes position of shadow
+                              ),
+                            ],
                           ),
                         )),
                     SizedBox(width: 10),
                     FlatButton(
                         onPressed: () {
-                          window.open(
-                              "https://github.com/mertguven",
-                              "github");
+                          window.open("https://github.com/mertguven", "github");
                         },
                         hoverColor: Colors.black,
                         color: Colors.white,
@@ -180,11 +201,19 @@ class _AnasayfaState extends State<Anasayfa> {
                           child: Icon(
                             MyFlutterApp.github,
                             size: 40,
-                            color: Color(0xFF8e99c7),
+                            color: Color(0xFF0077b6),
                           ),
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(100),
+                            borderRadius: BorderRadius.circular(100),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0xFF7f8287).withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 9,
+                                offset:
+                                Offset(20, 10), // changes position of shadow
+                              ),
+                            ],
                           ),
                         )),
                   ],
