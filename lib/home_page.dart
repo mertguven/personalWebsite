@@ -1,8 +1,8 @@
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:scoachWeb/screen/anasayfa.dart';
 import 'package:scoachWeb/screen/becerilerim.dart';
 import 'package:scoachWeb/screen/hakkimda.dart';
@@ -34,9 +34,23 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var platform = size.height < 960 && size.width < 360 ? "mobile" : "pc";
-    var oriantation = MediaQuery.of(context).orientation == Orientation.portrait ? Orientation.portrait : Orientation.landscape;
     return Scaffold(
+      floatingActionButton: currentPage != 0
+          ? FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  currentPage = 0;
+                });
+              },
+              elevation: 70,
+              backgroundColor: Colors.blueAccent,
+              child: Icon(
+                Icons.arrow_upward,
+                color: Colors.white,
+                size: 35,
+              ),
+            )
+          : Container(),
       body: Column(
         children: [
           //Top buttonlar
@@ -198,6 +212,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          //Sayfalar
           Expanded(
             child: PageView(
               physics: AlwaysScrollableScrollPhysics(),
@@ -218,8 +233,98 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          currentPage == 4 ? copyright() : Container()
         ],
       ),
     );
   }
+}
+
+Widget copyright() {
+  return Container(
+    color: Colors.black87,
+    padding: EdgeInsets.symmetric(vertical: 10),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          child: Row(
+            children: [
+              Icon(
+                MdiIcons.copyright,
+                color: Colors.white,
+              ),
+              SizedBox(width: 5),
+              Text(
+                "2020 MERT GÜVEN",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1,
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(width: 70),
+        Container(
+          child: Row(
+            children: [
+              IconButton(
+                icon: Icon(
+                  MdiIcons.facebook,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  window.open(
+                      "https://www.facebook.com/profile.php?id=100048342640662",
+                      "facebook");
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  MdiIcons.linkedin,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  window.open(
+                      "https://www.linkedin.com/in/mert-güven-8a0006177/",
+                      "linkedin");
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  MdiIcons.twitter,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  window.open("https://twitter.com/merttgvvn", "twitter");
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  MdiIcons.instagram,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  window.open(
+                      "https://www.instagram.com/merttgvvn/", "instagram");
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  MdiIcons.github,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  window.open("https://github.com/mertguven", "github");
+                },
+              )
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
 }
