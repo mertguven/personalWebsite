@@ -1,3 +1,4 @@
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 
 class Hakkimda extends StatefulWidget {
@@ -13,24 +14,23 @@ class _HakkimdaState extends State<Hakkimda> {
       child: FractionallySizedBox(
         widthFactor: 0.9,
         child: Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xFF90e0ef),
-                      Color(0xFFcaf0f8),
-                    ],
-                    stops: [
-                      0.3,
-                      0.6
-                    ]
-                ),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(100),
-                  topRight: Radius.circular(100),
-                ),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0xFF90e0ef),
+                  Color(0xFFcaf0f8),
+                ],
+                stops: [
+                  0.3,
+                  0.6
+                ]),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(100),
+              topRight: Radius.circular(100),
             ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

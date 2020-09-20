@@ -39,6 +39,7 @@ class _HomePageState extends State<HomePage> {
           ? FloatingActionButton(
               onPressed: () {
                 setState(() {
+                  _pageController.animateToPage(0, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
                   currentPage = 0;
                 });
               },
@@ -55,8 +56,8 @@ class _HomePageState extends State<HomePage> {
         children: [
           //Top buttonlar
           Container(
-            color: Color(0xFF90e0ef),
             padding: EdgeInsets.symmetric(vertical: 10),
+            color: Color(0xFF90e0ef),
             child: Row(
               children: [
                 SizedBox(width: 15),
