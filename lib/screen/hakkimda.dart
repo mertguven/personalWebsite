@@ -1,5 +1,6 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class Hakkimda extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class _HakkimdaState extends State<Hakkimda> {
     return Container(
       color: Colors.white,
       child: FractionallySizedBox(
-        widthFactor: 0.9,
+        widthFactor: context.isMobile ? 1 : 0.9,
         child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -27,8 +28,8 @@ class _HakkimdaState extends State<Hakkimda> {
                   0.6
                 ]),
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(100),
-              topRight: Radius.circular(100),
+              topLeft: Radius.circular(context.isMobile ? 70 : 100),
+              topRight: Radius.circular(context.isMobile ? 70 : 100),
             ),
           ),
           child: Column(

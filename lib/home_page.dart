@@ -8,6 +8,7 @@ import 'package:scoachWeb/screen/becerilerim.dart';
 import 'package:scoachWeb/screen/hakkimda.dart';
 import 'package:scoachWeb/screen/iletisim.dart';
 import 'package:scoachWeb/screen/scoach.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -31,43 +32,50 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
+  /*
+  AppBar(
+        centerTitle: true,
+              title: Text(
+                "MERT GÜVEN",
+                style:
+                    TextStyle(color: Color(0xFF03045e), fontFamily: "Poppins"),
+              ),
+            )
+
+   */
+
+  double xOffset = 0;
+  double yOffset = 0;
+  double scaleFactor = 1;
+  bool isDrawerOpen = false;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      floatingActionButton: currentPage != 0
-          ? FloatingActionButton(
-              onPressed: () {
-                setState(() {
-                  _pageController.animateToPage(0, duration: Duration(seconds: 1), curve: Curves.easeInToLinear);
-                  currentPage = 0;
-                });
-              },
-              elevation: 70,
-              backgroundColor: Colors.blueAccent,
-              child: Icon(
-                Icons.arrow_upward,
-                color: Colors.white,
-                size: 35,
-              ),
-            )
-          : Container(),
-      body: Column(
-        children: [
-          //Top buttonlar
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            color: Color(0xFF90e0ef),
-            child: Row(
-              children: [
-                SizedBox(width: 15),
-                Image.asset(
-                  "assets/images/logo.png",
-                  color: Color(0xFF03045e),
-                  width: 50,
-                  height: 50,
-                  filterQuality: FilterQuality.high,
+      appBar: context.isMobile
+          ? AppBar(
+        iconTheme: IconThemeData(
+          color: Color(0xFF0077b6),
+        ),
+              actions: [
+                IconButton(alignment: Alignment.center,
+                  padding: EdgeInsets.only(right: 10),
+                  icon: Icon(
+                    Icons.mail,
+                    size: 30,
+                  ),
+                  onPressed: () {},
                 ),
+              ],
+              centerTitle: true,
+              backgroundColor: Color(0xFF90e0ef),
+              elevation: 0,
+            )
+          : AppBar(
+              backgroundColor: Color(0xFF90e0ef),
+              elevation: 0,
+              actions: [
                 Spacer(flex: 1),
                 FlatButton(
                     onPressed: () {
@@ -209,10 +217,224 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     )),
-                Spacer(flex: 1),
+                Spacer(flex: 1)
               ],
             ),
-          ),
+      floatingActionButton: currentPage != 0
+          ? FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  _pageController.animateToPage(0,
+                      duration: Duration(seconds: 1),
+                      curve: Curves.easeInToLinear);
+                });
+              },
+              elevation: 70,
+              backgroundColor: Colors.blueAccent,
+              child: Icon(
+                Icons.arrow_upward,
+                color: Colors.white,
+                size: 35,
+              ),
+            )
+          : Container(),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: Color(0xFF90e0ef),),
+              child: Center(
+                child: ListTile(
+                  leading: Icon(
+                    Icons.copyright,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    "MERT GÜVEN",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+            Spacer(flex: 1),
+            FlatButton(
+                onPressed: () {
+                  _pageController.animateToPage(0,
+                      duration: Duration(seconds: 1),
+                      curve: Curves.easeInToLinear);
+                  Navigator.pop(context);
+                },
+                hoverColor: Colors.white12,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text("Ana Sayfa",
+                        style: TextStyle(
+                            color: Color(0xFF03045e),
+                            fontSize: 18,
+                            letterSpacing: 1)),
+                    Opacity(
+                      opacity: currentPage == 0 ? 1 : 0,
+                      child: Container(
+                        margin: EdgeInsets.only(top: 5),
+                        color: Color(0xFF03045e),
+                        height: 3,
+                        width: 40,
+                      ),
+                    ),
+                  ],
+                )),
+            SizedBox(height: 15),
+            FlatButton(
+                onPressed: () {
+                  _pageController.animateToPage(1,
+                      duration: Duration(seconds: 1),
+                      curve: Curves.easeInToLinear);
+                  Navigator.pop(context);
+                },
+                hoverColor: Colors.white12,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text("Hakkımda",
+                        style: TextStyle(
+                            color: Color(0xFF03045e),
+                            fontSize: 18,
+                            letterSpacing: 1)),
+                    Opacity(
+                      opacity: currentPage == 1 ? 1 : 0,
+                      child: Container(
+                        margin: EdgeInsets.only(top: 5),
+                        color: Color(0xFF03045e),
+                        height: 3,
+                        width: 40,
+                      ),
+                    ),
+                  ],
+                )),
+            SizedBox(height: 15),
+            FlatButton(
+                onPressed: () {
+                  _pageController.animateToPage(2,
+                      duration: Duration(seconds: 1),
+                      curve: Curves.easeInToLinear);
+                  Navigator.pop(context);
+                },
+                hoverColor: Colors.white12,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text("Becerilerim",
+                        style: TextStyle(
+                            color: Color(0xFF03045e),
+                            fontSize: 18,
+                            letterSpacing: 1)),
+                    Opacity(
+                      opacity: currentPage == 2 ? 1 : 0,
+                      child: Container(
+                        margin: EdgeInsets.only(top: 5),
+                        color: Color(0xFF03045e),
+                        height: 3,
+                        width: 40,
+                      ),
+                    ),
+                  ],
+                )),
+            SizedBox(height: 15),
+            FlatButton(
+                onPressed: () {
+                  _pageController.animateToPage(3,
+                      duration: Duration(seconds: 1),
+                      curve: Curves.easeInToLinear);
+                  Navigator.pop(context);
+                },
+                hoverColor: Colors.white12,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text("Scoach",
+                        style: TextStyle(
+                            color: Color(0xFF03045e),
+                            fontSize: 18,
+                            letterSpacing: 1)),
+                    Opacity(
+                      opacity: currentPage == 3 ? 1 : 0,
+                      child: Container(
+                        margin: EdgeInsets.only(top: 5),
+                        color: Color(0xFF03045e),
+                        height: 3,
+                        width: 40,
+                      ),
+                    ),
+                  ],
+                )),
+            SizedBox(height: 15),
+            FlatButton(
+                onPressed: () {
+                  _pageController.animateToPage(4,
+                      duration: Duration(seconds: 1),
+                      curve: Curves.easeInToLinear);
+                  Navigator.pop(context);
+                },
+                hoverColor: Colors.white12,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text("İletişim",
+                        style: TextStyle(
+                            color: Color(0xFF03045e),
+                            fontSize: 18,
+                            letterSpacing: 1)),
+                    Opacity(
+                      opacity: currentPage == 4 ? 1 : 0,
+                      child: Container(
+                        margin: EdgeInsets.only(top: 5),
+                        color: Color(0xFF03045e),
+                        height: 3,
+                        width: 40,
+                      ),
+                    ),
+                  ],
+                )),
+            Spacer(flex: 1),
+            Container(
+              color: Colors.black87,
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    MdiIcons.copyright,
+                    color: Colors.white,
+                  ),
+                  SizedBox(width: 5),
+                  Text(
+                    "2020 MERT GÜVEN",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: Column(
+        children: [
           //Sayfalar
           Expanded(
             child: PageView(
@@ -240,6 +462,35 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+/*
+Column(
+        children: [
+          //Sayfalar
+          Expanded(
+            child: PageView(
+              physics: AlwaysScrollableScrollPhysics(),
+              pageSnapping: false,
+              controller: _pageController,
+              scrollDirection: Axis.vertical,
+              onPageChanged: (val) {
+                setState(() {
+                  currentPage = val;
+                });
+              },
+              children: [
+                Anasayfa(),
+                Hakkimda(),
+                Becerilerim(),
+                Scoach(),
+                Iletisim()
+              ],
+            ),
+          ),
+          currentPage == 4 ? copyright() : Container()
+        ],
+      )
+ */
 
 Widget copyright() {
   return Container(
