@@ -9,6 +9,7 @@ import 'package:scoachWeb/screen/hakkimda.dart';
 import 'package:scoachWeb/screen/iletisim.dart';
 import 'package:scoachWeb/screen/scoach.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -32,18 +33,6 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  /*
-  AppBar(
-        centerTitle: true,
-              title: Text(
-                "MERT GÜVEN",
-                style:
-                    TextStyle(color: Color(0xFF03045e), fontFamily: "Poppins"),
-              ),
-            )
-
-   */
-
   double xOffset = 0;
   double yOffset = 0;
   double scaleFactor = 1;
@@ -51,7 +40,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: context.isMobile
           ? AppBar(
@@ -62,10 +50,12 @@ class _HomePageState extends State<HomePage> {
                 IconButton(alignment: Alignment.center,
                   padding: EdgeInsets.only(right: 10),
                   icon: Icon(
-                    Icons.mail,
+                    Icons.phone,
                     size: 30,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    launch('tel:05073791004');
+                  },
                 ),
               ],
               centerTitle: true,
@@ -456,127 +446,8 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          currentPage == 4 ? copyright() : Container()
         ],
       ),
     );
   }
-}
-
-/*
-Column(
-        children: [
-          //Sayfalar
-          Expanded(
-            child: PageView(
-              physics: AlwaysScrollableScrollPhysics(),
-              pageSnapping: false,
-              controller: _pageController,
-              scrollDirection: Axis.vertical,
-              onPageChanged: (val) {
-                setState(() {
-                  currentPage = val;
-                });
-              },
-              children: [
-                Anasayfa(),
-                Hakkimda(),
-                Becerilerim(),
-                Scoach(),
-                Iletisim()
-              ],
-            ),
-          ),
-          currentPage == 4 ? copyright() : Container()
-        ],
-      )
- */
-
-Widget copyright() {
-  return Container(
-    color: Colors.black87,
-    padding: EdgeInsets.symmetric(vertical: 10),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          child: Row(
-            children: [
-              Icon(
-                MdiIcons.copyright,
-                color: Colors.white,
-              ),
-              SizedBox(width: 5),
-              Text(
-                "2020 MERT GÜVEN",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: "Poppins",
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1,
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(width: 70),
-        Container(
-          child: Row(
-            children: [
-              IconButton(
-                icon: Icon(
-                  MdiIcons.facebook,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  window.open(
-                      "https://www.facebook.com/profile.php?id=100048342640662",
-                      "facebook");
-                },
-              ),
-              IconButton(
-                icon: Icon(
-                  MdiIcons.linkedin,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  window.open(
-                      "https://www.linkedin.com/in/mert-güven-8a0006177/",
-                      "linkedin");
-                },
-              ),
-              IconButton(
-                icon: Icon(
-                  MdiIcons.twitter,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  window.open("https://twitter.com/merttgvvn", "twitter");
-                },
-              ),
-              IconButton(
-                icon: Icon(
-                  MdiIcons.instagram,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  window.open(
-                      "https://www.instagram.com/merttgvvn/", "instagram");
-                },
-              ),
-              IconButton(
-                icon: Icon(
-                  MdiIcons.github,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  window.open("https://github.com/mertguven", "github");
-                },
-              )
-            ],
-          ),
-        ),
-      ],
-    ),
-  );
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
 import 'my_flutter_app_icons.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class Anasayfa extends StatefulWidget {
   @override
@@ -66,156 +67,15 @@ class _AnasayfaState extends State<Anasayfa> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FlatButton(
-                        onPressed: () {
-                          window.open(
-                              "https://www.facebook.com/profile.php?id=100048342640662",
-                              "facebook");
-                        },
-                        hoverColor: Colors.black,
-                        color: Colors.white,
-                        shape: CircleBorder(),
-                        child: Container(
-                          height: 80,
-                          width: 80,
-                          child: Icon(
-                            MyFlutterApp.facebook,
-                            size: 40,
-                            color: Color(0xFF0077b6),
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color(0xFF7f8287).withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 9,
-                                offset:
-                                    Offset(20, 10), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                        )),
+                    context.isMobile ? forMobile("https://www.facebook.com/profile.php?id=100048342640662",MyFlutterApp.facebook) : forWeb("https://www.facebook.com/profile.php?id=100048342640662",MyFlutterApp.facebook),
                     SizedBox(width: 10),
-                    FlatButton(
-                        onPressed: () {
-                          window.open(
-                              "https://www.linkedin.com/in/mert-güven-8a0006177/",
-                              "linkedin");
-                        },
-                        hoverColor: Colors.black,
-                        color: Colors.white,
-                        shape: CircleBorder(),
-                        child: Container(
-                          height: 80,
-                          width: 80,
-                          child: Icon(
-                            MyFlutterApp.linkedin,
-                            size: 40,
-                            color: Color(0xFF0077b6),
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color(0xFF7f8287).withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 9,
-                                offset:
-                                Offset(20, 10), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                        )),
+                    context.isMobile ? forMobile("https://www.linkedin.com/in/mert-güven-8a0006177/",MyFlutterApp.linkedin) : forWeb("https://www.linkedin.com/in/mert-güven-8a0006177/",MyFlutterApp.linkedin),
                     SizedBox(width: 10),
-                    FlatButton(
-                        onPressed: () {
-                          window.open(
-                              "https://twitter.com/merttgvvn", "twitter");
-                        },
-                        hoverColor: Colors.black,
-                        color: Colors.white,
-                        shape: CircleBorder(),
-                        child: Container(
-                          height: 80,
-                          width: 80,
-                          child: Icon(
-                            MyFlutterApp.twitter,
-                            size: 40,
-                            color: Color(0xFF0077b6),
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color(0xFF7f8287).withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 9,
-                                offset:
-                                Offset(20, 10), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                        )),
+                    context.isMobile ? forMobile("https://twitter.com/merttgvvn",MyFlutterApp.twitter) : forWeb("https://twitter.com/merttgvvn",MyFlutterApp.twitter),
                     SizedBox(width: 10),
-                    FlatButton(
-                        onPressed: () {
-                          window.open("https://www.instagram.com/merttgvvn/",
-                              "instagram");
-                        },
-                        hoverColor: Colors.black,
-                        color: Colors.white,
-                        shape: CircleBorder(),
-                        child: Container(
-                          height: 80,
-                          width: 80,
-                          child: Icon(
-                            MyFlutterApp.instagram_1,
-                            size: 40,
-                            color: Color(0xFF0077b6),
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color(0xFF7f8287).withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 9,
-                                offset:
-                                Offset(20, 10), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                        )),
+                    context.isMobile ? forMobile("https://www.instagram.com/merttgvvn/",MyFlutterApp.instagram_1) : forWeb("https://www.instagram.com/merttgvvn/",MyFlutterApp.instagram_1),
                     SizedBox(width: 10),
-                    FlatButton(
-                        onPressed: () {
-                          window.open("https://github.com/mertguven", "github");
-                        },
-                        hoverColor: Colors.black,
-                        color: Colors.white,
-                        shape: CircleBorder(),
-                        child: Container(
-                          height: 80,
-                          width: 80,
-                          child: Icon(
-                            MyFlutterApp.github,
-                            size: 40,
-                            color: Color(0xFF0077b6),
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color(0xFF7f8287).withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 9,
-                                offset:
-                                Offset(20, 10), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                        )),
+                    context.isMobile ? forMobile("https://github.com/mertguven",MyFlutterApp.github) : forWeb("https://github.com/mertguven",MyFlutterApp.github),
                   ],
                 ),
               ],
@@ -225,4 +85,72 @@ class _AnasayfaState extends State<Anasayfa> {
       ),
     );
   }
+}
+
+Widget forMobile(String link, IconData facebook) {
+  return Expanded(
+    child: FlatButton(
+        onPressed: () {
+          window.open(
+              link,
+              "link");
+        },
+        hoverColor: Colors.black,
+        color: Colors.white,
+        shape: CircleBorder(),
+        child: Container(
+          height: 80,
+          width: 80,
+          child: Icon(
+            facebook,
+            size: 40,
+            color: Color(0xFF0077b6),
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF7f8287).withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 9,
+                offset:
+                Offset(20, 10), // changes position of shadow
+              ),
+            ],
+          ),
+        )),
+  );
+}
+
+Widget forWeb(String link, IconData facebook) {
+  return FlatButton(
+      onPressed: () {
+        window.open(
+            link,
+            "link");
+      },
+      hoverColor: Colors.black,
+      color: Colors.white,
+      shape: CircleBorder(),
+      child: Container(
+        height: 80,
+        width: 80,
+        child: Icon(
+          facebook,
+          size: 40,
+          color: Color(0xFF0077b6),
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xFF7f8287).withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 9,
+              offset:
+              Offset(20, 10), // changes position of shadow
+            ),
+          ],
+        ),
+      ));
 }
