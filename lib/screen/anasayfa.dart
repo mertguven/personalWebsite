@@ -99,11 +99,11 @@ Widget forMobile(String link, IconData facebook) {
         color: Colors.white,
         shape: CircleBorder(),
         child: Container(
-          height: 80,
-          width: 80,
+          height: 60,
+          width: 60,
           child: Icon(
             facebook,
-            size: 40,
+            size: 30,
             color: Color(0xFF0077b6),
           ),
           decoration: BoxDecoration(

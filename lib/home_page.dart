@@ -228,22 +228,27 @@ class _HomePageState extends State<HomePage> {
               ),
             )
           : Container(),
-      drawer: Drawer(
+      drawer: context.isMobile ? Drawer(
         child: Column(
           children: [
             DrawerHeader(
               decoration: BoxDecoration(color: Color(0xFF90e0ef),),
-              child: Center(
-                child: ListTile(
-                  leading: Icon(
-                    Icons.copyright,
-                    color: Colors.white,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.location_city,color: Color(0xFF03045e)),
+                    title: Text("Antalya/Alanya",style: TextStyle(color: Color(0xFF03045e),fontFamily: "Poppins",fontWeight: FontWeight.bold),),
                   ),
-                  title: Text(
-                    "MERT GÜVEN",
-                    style: TextStyle(color: Colors.white),
+                  ListTile(
+                    leading: Icon(Icons.phone, color: Color(0xFF03045e)),
+                    title: Text("0507 379 1004",style: TextStyle(color: Color(0xFF03045e),fontFamily: "Poppins",fontWeight: FontWeight.bold),),
+                    trailing: Icon(Icons.arrow_right, color: Color(0xFF03045e),size: 26,),
+                    onTap: (){
+                      launch('tel:05073791004');
+                    },
                   ),
-                ),
+                ],
               ),
             ),
             Spacer(flex: 1),
@@ -422,7 +427,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-      ),
+      ) : null,
       body: Column(
         children: [
           //Sayfalar

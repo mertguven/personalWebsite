@@ -167,9 +167,11 @@ Widget forWeb(){
           ),
         ],
       ),
-      Container(
-        margin: EdgeInsets.all(60),
-        child: Image.asset("assets/images/mockup.png",),
+      Expanded(
+        child: Container(
+          margin: EdgeInsets.all(60),
+          child: Image.asset("assets/images/mockup.png",),
+        ),
       ),
     ],
   );

@@ -43,19 +43,17 @@ class _HakkimdaState extends State<Hakkimda> {
                     letterSpacing: 2,
                     fontSize: 50),
               ),
-              Center(
-                child: FractionallySizedBox(
-                  widthFactor: 0.75,
-                  child: Text(
-                    "   10 Ağustos 1998'de Manisa'nın Soma ileçesinde doğdum. İlköğretimimi Alanya'nın Hayate Hanım İlköğretim Okulunda aldım. Liseyi yine Alanya'da Alanya Teknik ve Endüstri Meslek Lisesinde okudum. Küçük yaşlarda başlayan futbola ilgimden dolayı yaklaşık 9 yıl kadar Alanya Sporun altyapı takımlarında futbol oynadım. Lise bittiğinde futbolu bırakarak üniversite sınavına hazırlandım. Manisa Celal Bayar Üniversitesi'nin Yazılım Mühendisliği bölümünü kazandım. Şuan 3. sınıftayım. İlgi duyduğum ve kodu yazdıktan sonra hemen görsel olarak sonuçlarını almak beni daha motive ettiği için Mobil ve Front-end alanlarında kendimi geliştirmeye çalışıyorum. Gelcek için hedeflerimden birisi Türkiye'nin saygın Yazılım Mühedislerinden birisi olmak.",
-                    style: TextStyle(
-                      color: Color(0xFF0077b6),
-                      fontSize: 18,
-                      letterSpacing: 1,
-                      fontFamily: "Poppins",
-                    ),
-                    textAlign: TextAlign.start,
+              FractionallySizedBox(
+                widthFactor: 0.75,
+                child: Text(
+                  "   10 Ağustos 1998'de Manisa'nın Soma ileçesinde doğdum. İlköğretimimi Alanya'nın Hayate Hanım İlköğretim Okulu'nda, lise eğitimimi Alanya Teknik ve Endüstri Meslek Lisesinde tamamladım. Küçük yaşlarda başlayan futbola ilgimden dolayı yaklaşık 9 yıl kadar Alanya Spor'un altyapı takımlarında futbol oynadım. Şuan Manisa Celal Bayar Üniversitesi'nin Yazılım Mühendisliği bölümünde okumaktayım. İlgi duyduğum ve kodu yazdıktan sonra hemen görsel olarak sonuçlarını almak beni daha motive ettiği için Mobil ve Front-end alanlarında kendimi geliştirmeye çalışıyorum.",
+                  style: TextStyle(
+                    color: Color(0xFF0077b6),
+                    fontSize: 18,
+                    letterSpacing: 1,
+                    fontFamily: "Poppins",
                   ),
+                  textAlign: TextAlign.start,
                 ),
               ),
             ],
