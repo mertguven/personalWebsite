@@ -9,6 +9,10 @@ class Becerilerim extends StatefulWidget {
 }
 
 class _BecerilerimState extends State<Becerilerim> {
+
+  PageController _pageController = PageController(initialPage: 0);
+  int currentFlipCard = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,47 +43,45 @@ class _BecerilerimState extends State<Becerilerim> {
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF0077b6),
                     letterSpacing: 2,
-                    fontSize: 50),
+                    fontSize: context.isMobile ? 35 : 50),
               ),
-              Center(
-                child: Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.symmetric(horizontal: 40),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        //c# projeler
-                        FlipCard(
-                          front: beceriKartlariOn(
-                              Image.asset("assets/images/c#.png"),
-                              "C#; Microsoft tarafından .NET Teknolojisi için geliştirilen modern bir programlama dilidir. Sözdizimi C-like (C benzeri) bir deneyim sunar."),
-                          back: beceriKartlariArka(
-                              Image.asset("assets/images/c#.png"),
-                              "1.Sipariş uygulaması\n2.Sekiz Harf Anlamlı Kelime\n3.ProSports\n4.Sekiz Harf Anlamlı Kelime v2.0\n5.HeavySpace\n6.Sporcu Takip"),
-                        ),
-                        SizedBox(width: 30),
-                        FlipCard(
-                          front: beceriKartlariOn(
-                              Image.asset("assets/images/c.png"),
-                              "AT&T Bell laboratuvarlarında, Ken Thompson ve Dennis Ritchie tarafından UNIX İşletim Sistemi' ni geliştirebilmek amacıyla B dilinden türetilmiş yapısal bir programlama dilidir."),
-                          back: beceriKartlariArka(
-                              Image.asset("assets/images/c.png"),
-                              "1.Banka Yazılım Otomasyonu\n2.Personel Maaş Hesaplama Otomasyonu"),
-                        ),
-                        SizedBox(width: 30),
-                        FlipCard(
-                          front: beceriKartlariOn(
-                              Image.asset("assets/images/dart.png"),
-                              "Dart, ilk kez Google tarafından geliştirilen ve daha sonraları ECMA tarafından standart haline getirilen açık kaynaklı ve genel-amaçlı bir programlama dilidir."),
-                          back: beceriKartlariArka(
-                              Image.asset("assets/images/dart.png"),
-                              "1.Scoach - for Swimming Coach(Flutter Mobile)\n2.Personal Website(Flutter web)"),
-                        )
-                      ],
+              FractionallySizedBox(
+                widthFactor: 1,
+                child: PageView(
+                  physics: AlwaysScrollableScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  controller: _pageController,
+                  onPageChanged: (val) {
+                    setState(() {
+                      currentFlipCard = val;
+                    });
+                  },
+                  children: [
+                    FlipCard(
+                      front: beceriKartlariOn(
+                          Image.asset("assets/images/c#.png"),
+                          "C#; Microsoft tarafından .NET Teknolojisi için geliştirilen modern bir programlama dilidir. Sözdizimi C-like (C benzeri) bir deneyim sunar."),
+                      back: beceriKartlariArka(
+                          Image.asset("assets/images/c#.png"),
+                          "1.Sipariş uygulaması\n2.Sekiz Harf Anlamlı Kelime\n3.ProSports\n4.Sekiz Harf Anlamlı Kelime v2.0\n5.HeavySpace\n6.Sporcu Takip"),
                     ),
-                  ),
+                    FlipCard(
+                      front: beceriKartlariOn(
+                          Image.asset("assets/images/c.png"),
+                          "AT&T Bell laboratuvarlarında, Ken Thompson ve Dennis Ritchie tarafından UNIX İşletim Sistemi' ni geliştirebilmek amacıyla B dilinden türetilmiş yapısal bir programlama dilidir."),
+                      back: beceriKartlariArka(
+                          Image.asset("assets/images/c.png"),
+                          "1.Banka Yazılım Otomasyonu\n2.Personel Maaş Hesaplama Otomasyonu"),
+                    ),
+                    FlipCard(
+                      front: beceriKartlariOn(
+                          Image.asset("assets/images/dart.png"),
+                          "Dart, ilk kez Google tarafından geliştirilen ve daha sonraları ECMA tarafından standart haline getirilen açık kaynaklı ve genel-amaçlı bir programlama dilidir."),
+                      back: beceriKartlariArka(
+                          Image.asset("assets/images/dart.png"),
+                          "1.Scoach - for Swimming Coach(Flutter Mobile)\n2.Personal Website(Flutter web)"),
+                    )
+                  ],
                 ),
               ),
             ],

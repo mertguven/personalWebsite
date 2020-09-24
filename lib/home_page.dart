@@ -428,29 +428,22 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ) : null,
-      body: Column(
+      body: PageView(
+        physics: AlwaysScrollableScrollPhysics(),
+        pageSnapping: false,
+        controller: _pageController,
+        scrollDirection: Axis.vertical,
+        onPageChanged: (val) {
+          setState(() {
+            currentPage = val;
+          });
+        },
         children: [
-          //Sayfalar
-          Expanded(
-            child: PageView(
-              physics: AlwaysScrollableScrollPhysics(),
-              pageSnapping: false,
-              controller: _pageController,
-              scrollDirection: Axis.vertical,
-              onPageChanged: (val) {
-                setState(() {
-                  currentPage = val;
-                });
-              },
-              children: [
-                Anasayfa(),
-                Hakkimda(),
-                Becerilerim(),
-                Scoach(),
-                Iletisim()
-              ],
-            ),
-          ),
+          Anasayfa(),
+          Hakkimda(),
+          Becerilerim(),
+          Scoach(),
+          Iletisim()
         ],
       ),
     );

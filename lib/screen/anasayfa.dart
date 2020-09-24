@@ -31,55 +31,49 @@ class _AnasayfaState extends State<Anasayfa> {
             ]),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
             margin: EdgeInsets.only(top: 50),
             child: CircleAvatar(
-              radius: 100,
+              radius: context.isMobile ? 85 : 100,
               backgroundImage: NetworkImage(
                   "https://instagram.fayt2-1.fna.fbcdn.net/v/t51.2885-19/s150x150/66243095_712452122526807_5112435250445680640_n.jpg?_nc_ht=instagram.fayt2-1.fna.fbcdn.net&_nc_ohc=SF4rzNZjlIAAX8BwERC&oh=561ba2db6fc7f22ef1ba87bb001562a1&oe=5F7D0C0F"),
             ),
           ),
+          Text(
+            "MERT GÜVEN",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontFamily: "Poppins",
+                color: Color(0xFF0077b6),
+                fontSize: context.isMobile ? 40 : 60,
+                letterSpacing: context.isMobile ? 5 : 10),
+          ),
           Container(
-            height: MediaQuery.of(context).size.height / 2,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "MERT GÜVEN",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      color: Color(0xFF0077b6),
-                      fontSize: 60,
-                      letterSpacing: 10),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  child: Text(
-                    "Front-end ve Mobil alanlarında kendini geliştirmeye çalışan yazılım mühendisliği öğrencisiyim.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Color(0xFF0077b6),
-                        fontSize: 20,
-                        letterSpacing: 1),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    context.isMobile ? forMobile("https://www.facebook.com/profile.php?id=100048342640662",MyFlutterApp.facebook) : forWeb("https://www.facebook.com/profile.php?id=100048342640662",MyFlutterApp.facebook),
-                    SizedBox(width: 10),
-                    context.isMobile ? forMobile("https://www.linkedin.com/in/mert-güven-8a0006177/",MyFlutterApp.linkedin) : forWeb("https://www.linkedin.com/in/mert-güven-8a0006177/",MyFlutterApp.linkedin),
-                    SizedBox(width: 10),
-                    context.isMobile ? forMobile("https://twitter.com/merttgvvn",MyFlutterApp.twitter) : forWeb("https://twitter.com/merttgvvn",MyFlutterApp.twitter),
-                    SizedBox(width: 10),
-                    context.isMobile ? forMobile("https://www.instagram.com/merttgvvn/",MyFlutterApp.instagram_1) : forWeb("https://www.instagram.com/merttgvvn/",MyFlutterApp.instagram_1),
-                    SizedBox(width: 10),
-                    context.isMobile ? forMobile("https://github.com/mertguven",MyFlutterApp.github) : forWeb("https://github.com/mertguven",MyFlutterApp.github),
-                  ],
-                ),
-              ],
+            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Text(
+              "Front-end ve Mobil alanlarında kendini geliştirmeye çalışan yazılım mühendisliği öğrencisiyim.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Color(0xFF0077b6),
+                  fontSize: 20,
+                  letterSpacing: 1),
             ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              context.isMobile ? forMobile("https://www.facebook.com/profile.php?id=100048342640662",MyFlutterApp.facebook) : forWeb("https://www.facebook.com/profile.php?id=100048342640662",MyFlutterApp.facebook),
+              SizedBox(width: 10),
+              context.isMobile ? forMobile("https://www.linkedin.com/in/mert-güven-8a0006177/",MyFlutterApp.linkedin) : forWeb("https://www.linkedin.com/in/mert-güven-8a0006177/",MyFlutterApp.linkedin),
+              SizedBox(width: 10),
+              context.isMobile ? forMobile("https://twitter.com/merttgvvn",MyFlutterApp.twitter) : forWeb("https://twitter.com/merttgvvn",MyFlutterApp.twitter),
+              SizedBox(width: 10),
+              context.isMobile ? forMobile("https://www.instagram.com/merttgvvn/",MyFlutterApp.instagram_1) : forWeb("https://www.instagram.com/merttgvvn/",MyFlutterApp.instagram_1),
+              SizedBox(width: 10),
+              context.isMobile ? forMobile("https://github.com/mertguven",MyFlutterApp.github) : forWeb("https://github.com/mertguven",MyFlutterApp.github),
+            ],
           ),
         ],
       ),

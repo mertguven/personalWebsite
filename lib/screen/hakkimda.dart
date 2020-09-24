@@ -27,13 +27,14 @@ class _HakkimdaState extends State<Hakkimda> {
                   0.6
                 ]),
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(context.isMobile ? 100 : 100),
-              topRight: Radius.circular(context.isMobile ? 100 : 100),
+              topLeft: Radius.circular(context.isMobile ? 80 : 100),
+              topRight: Radius.circular(context.isMobile ? 80 : 100),
             ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
               Text(
                 "HAKKIMDA",
                 style: TextStyle(
@@ -41,7 +42,7 @@ class _HakkimdaState extends State<Hakkimda> {
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF0077b6),
                     letterSpacing: 2,
-                    fontSize: 50),
+                    fontSize: context.isMobile ? 35 : 50),
               ),
               FractionallySizedBox(
                 widthFactor: 0.75,
@@ -49,7 +50,7 @@ class _HakkimdaState extends State<Hakkimda> {
                   "   10 Ağustos 1998'de Manisa'nın Soma ileçesinde doğdum. İlköğretimimi Alanya'nın Hayate Hanım İlköğretim Okulu'nda, lise eğitimimi Alanya Teknik ve Endüstri Meslek Lisesinde tamamladım. Küçük yaşlarda başlayan futbola ilgimden dolayı yaklaşık 9 yıl kadar Alanya Spor'un altyapı takımlarında futbol oynadım. Şuan Manisa Celal Bayar Üniversitesi'nin Yazılım Mühendisliği bölümünde okumaktayım. İlgi duyduğum ve kodu yazdıktan sonra hemen görsel olarak sonuçlarını almak beni daha motive ettiği için Mobil ve Front-end alanlarında kendimi geliştirmeye çalışıyorum.",
                   style: TextStyle(
                     color: Color(0xFF0077b6),
-                    fontSize: 18,
+                    fontSize: context.isMobile ? 16 : 18,
                     letterSpacing: 1,
                     fontFamily: "Poppins",
                   ),
